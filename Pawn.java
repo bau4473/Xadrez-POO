@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Pawn extends Piece {
 
   public Pawn(int x, int y, Player player) {
@@ -30,4 +32,38 @@ public class Pawn extends Piece {
     return false;
   }
 
+  public boolean canBePromoted(){
+    if (this.y == 0 || this.y == 7) return true;
+    return false;
+  }
+  
+  public void pawnPromotion(Player player, Board board){
+    Scanner sc = new Scanner(System.in);
+    boolean flag = true;
+    while (flag) {
+      System.out.println("Escolha uma peça ser promovida (R, N, Q, B)");
+      char choice = sc.next().charAt(0);
+      switch (choice) {
+        case 'R':
+          board.setPiece(this.x, this.y, new Rook(this.x, this.y, player));
+          flag = false;
+          break;
+        case 'N':
+          board.setPiece(this.x, this.y, new Knight(this.x, this.y, player));
+          flag = false;
+          break;
+        case 'Q':
+          board.setPiece(this.x, this.y, new Queen(this.x, this.y, player));
+          flag = false;
+          break;
+        case 'B':
+          board.setPiece(this.x, this.y, new Bishop(this.x, this.y, player));
+          flag = false;
+          break;
+        default:
+          System.out.println("Peça invalida");
+      }
+    }
+    sc.close();
+  }
 }

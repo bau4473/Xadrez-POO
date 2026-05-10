@@ -81,6 +81,8 @@ public class Board {
     }
 
     return false;
+=======
+>>>>>>> develop
   }
 
   public void setupDefaultBoard(Player white, Player black) {

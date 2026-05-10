@@ -5,6 +5,7 @@ public abstract class Piece {
   protected Player player;
   protected Type type;
 
+  //teste de push
   // Construtor
   public Piece(int x, int y, Player player) {
     this.x = x;
