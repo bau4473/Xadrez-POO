@@ -64,6 +64,12 @@ public class Board {
     removePiece(originRow, originColumn);
     piece.setX(destinedRow);
     piece.setY(destinedColumn);
+    if (piece instanceof Pawn) {
+      Pawn p = (Pawn)piece;
+      if (p.canBePromoted()) {
+        p.pawnPromotion(piece.player, this);
+      }
+    }
   }
 
   public void setupDefaultBoard(Player white, Player black) {
