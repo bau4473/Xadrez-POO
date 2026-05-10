@@ -65,11 +65,22 @@ public class Board {
     piece.setX(destinedRow);
     piece.setY(destinedColumn);
     if (piece instanceof Pawn) {
-      Pawn p = (Pawn)piece;
+      Pawn p = (Pawn) piece;
       if (p.canBePromoted()) {
         p.pawnPromotion(piece.player, this);
       }
     }
+  }
+
+  public boolean isAlly(int destinedRow, int destinedColumn, Player currentPlayer) {
+    Piece piece = getPiece(destinedRow, destinedColumn);
+    if (piece == null) {
+      return false;
+    } else if (piece.player.playerColor == currentPlayer.playerColor) {
+      return true;
+    }
+
+    return false;
   }
 
   public void setupDefaultBoard(Player white, Player black) {
