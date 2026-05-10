@@ -5,7 +5,7 @@ public abstract class Piece {
   protected Player player;
   protected Type type;
 
-  // Construtor
+  // Construtor aaa
   public Piece(int x, int y, Player player) {
     this.x = x;
     this.y = y;
